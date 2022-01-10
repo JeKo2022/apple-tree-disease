@@ -1,7 +1,7 @@
 TEAM MEMBERS:
-  Nassim Bekkali
-  Rhea Groenenberg
-  Jeanice Koorndijk
+  Nassim Bekkali,
+  Rhea Groenenberg,
+  Jeanice Koorndijk.
 
 PROJECT DESCRIPTION
 
