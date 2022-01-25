@@ -1,0 +1,16 @@
+# remove combined classes
+new_labels = df['labels'].to_list()
+
+for i in range(len(new_labels)):
+  if new_labels[i] == 'scab frog_eye_leaf_spot complex' or new_labels[i] == 'scab frog_eye_leaf_spot':
+    new_labels.pop(i)
+  elif new_labels[i] == 'frog_eye_leaf_spot complex':
+    new_labels.pop(i)
+  elif new_labels[i] == 'powdery_mildew complex':
+    new_labels.pop(i)
+  elif new_labels[i] == 'rust complex' or new_labels[i] == 'rust frog_eye_leaf_spot':
+    new_labels.pop(i)
+
+# replace labels with adjusted labels in dataframe
+df['adjusted labels'] = np.array(new_labels)
+df = df.drop('labels', axis = 1)
