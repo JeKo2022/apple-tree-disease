@@ -1,0 +1,43 @@
+# VGG-16 model
+
+# Define Sequential model
+modelVGG_16 = models.Sequential()
+
+# create convolutional layers and max pooling layer
+modelVGG_16.add(layers.Conv2D(filters=64, kernel_size=(3,3), padding="same", activation="relu",input_shape=(96, 96, 3)))
+modelVGG_16.add(layers.Conv2D(filters=64, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.MaxPooling2D((2, 2)))
+
+# create convolutional layers and max pooling layer
+modelVGG_16.add(layers.Conv2D(filters=128, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=128, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.MaxPooling2D((2, 2)))
+
+# create convolutional layers and max pooling layer
+modelVGG_16.add(layers.Conv2D(filters=256, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=256, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.MaxPooling2D((2, 2)))
+
+# create convolutional layers and max pooling layer
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.MaxPooling2D((2, 2)))
+
+# create convolutional layers and max pooling layer
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.Conv2D(filters=512, kernel_size=(3,3), padding="same", activation="relu"))
+modelVGG_16.add(layers.MaxPooling2D((2, 2)))
+
+
+# flatten layer
+modelVGG_16.add(layers.Flatten())
+modelVGG_16.add(layers.Dense(4096, activation="relu"))
+modelVGG_16.add(tf.keras.layers.Dropout(0.5))
+modelVGG_16.add(layers.Dense(4096, activation="relu"))
+modelVGG_16.add(tf.keras.layers.Dropout(0.5))
+
+# predict
+modelVGG_16.add(layers.Dense(6, activation='softmax'))
+
